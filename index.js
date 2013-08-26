@@ -11,14 +11,14 @@ module.exports = function (dir) {
   opts.push('--pretty=format:')
   opts.push('--name-only')
 
-  function ignoreWhitespace (chunk) {
-    var str = trim(chunk.toString())
-    return !!str ? str : undefined
-  }
-
   return gitgo(dir, opts)
     .pipe(lino())
     .pipe(cop(ignoreWhitespace))
+}
+
+function ignoreWhitespace (chunk) {
+  var str = trim(chunk.toString())
+  return !!str ? str : undefined
 }
 
 function trim (str) {

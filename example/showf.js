@@ -3,9 +3,5 @@ var showf = require('../')
   , cop = require('cop')
 
 showf(process.cwd())
-  .pipe(cop(line))
+  .pipe(cop(function (s) { return s + '\n' }))
   .pipe(process.stdout)
-
-function line (str) {
-  return str + '\n'
-}

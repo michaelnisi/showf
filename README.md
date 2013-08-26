@@ -10,12 +10,8 @@ The showf [Node.js](http://nodejs.org/) module shows filenames of changed files 
       , cop = require('cop')
 
     showf(process.cwd())
-      .pipe(cop(line))
+      .pipe(cop(function (s) { return s + '\n' }))
       .pipe(process.stdout)
-
-    function line (str) {
-      return str + '\n'
-    }
 
 ### showf(dir)
 
