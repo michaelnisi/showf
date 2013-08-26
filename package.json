@@ -10,9 +10,31 @@
     "type": "git",
     "url": "git://github.com/michaelnisi/showf.git"
   },
-  "author": "Michael Nisi",
-  "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/michaelnisi/showf/issues"
-  }
+  },
+  "keywords": [
+    "git",
+    "commit",
+    "changed",
+    "files",
+    "stream"
+  ],
+  "dependencies": {
+    "gitgo": "",
+    "cop": ""
+  },
+  "devDependencies": {
+    "tap": "0.4.x",
+    "event-stream": "3.0.x"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "author": {
+    "name": "Michael Nisi",
+    "email": "michael.nisi@gmail.com",
+    "url": "http://michaelnisi.com"
+  },
+  "license": "MIT"
 }
