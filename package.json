@@ -14,10 +14,13 @@
     "url": "https://github.com/michaelnisi/showf/issues"
   },
   "keywords": [
+    "show",
     "git",
     "commit",
+    "latest",
     "changed",
     "files",
+    "filenames",
     "stream"
   ],
   "dependencies": {

@@ -22,15 +22,18 @@ test('git init', function (t) {
 })
 
 test('write', function (t) {
-  var file = join(dir, 'hello.js')
-  fs.writeFile(file, 'console.log("Hello World!")', function (err) {
-    t.ok(err ? false : true, 'write should be ok')
-    t.end()
-  })
+  var files = ['a.js', 'b.js', 'c.js'], filename = null
+  while (file = files.shift()) {
+    filename = join(dir, file)
+    fs.writeFile(filename, 'console.log("Hello World!")', function (er) {
+      t.notOk(er, 'should not error')
+      if (!files.length) t.end()
+    })
+  }
 })
 
 test('git add', function (t) {
-  gitgo(dir, ['add', 'hello.js'])
+  gitgo(dir, ['add', '.'])
     .on('end', function () {
       t.end()
     })
@@ -38,7 +41,7 @@ test('git add', function (t) {
 })
 
 test('git commit', function (t) {
-  gitgo(dir, ['commit', '-m', '"Add hello.js"'])
+  gitgo(dir, ['commit', '-m', '"Add files"'])
     .on('end', function () {
       t.end()
     })
@@ -46,10 +49,10 @@ test('git commit', function (t) {
 })
 
 test('lines', function (t) {
+  var expected = ['a.js', 'b.js', 'c.js']
   showf(dir)
     .pipe(es.writeArray(function (err, lines) {
-      t.equals(lines.length, 1)
-      //t.equals(lines.pop(), 'hello.js')
+      t.deepEquals(lines, expected, 'should be files of last commit')
       t.end()
     })
   )
