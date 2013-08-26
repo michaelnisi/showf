@@ -7,6 +7,7 @@ var test = require('tap').test
   , showf = require('../')
   , dir = '/tmp/pushup-' + Math.floor(Math.random() * (1<<24))
   , spawn = require('child_process').spawn
+  , cwd = process.cwd()
 
 test('setup', function (t) {
   fs.mkdirSync(dir, 0700)
@@ -63,6 +64,7 @@ test('teardown', function (t) {
   rimraf(dir, function (err) {
     fs.stat(dir, function (err) {
       t.ok(!!err, 'should clean up after ourselves')
+      process.chdir(cwd)
       t.end()
     })
   })
