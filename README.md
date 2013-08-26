@@ -1,12 +1,23 @@
 # showf - show changed files in latest commit
 
-The showf [Node.js](http://nodejs.org/) module shows changed files in the latest commit. 
+The showf [Node.js](http://nodejs.org/) module shows filenames of changed files in the latest commit. 
 
 [![Build Status](https://secure.travis-ci.org/michaelnisi/showf.png)](http://travis-ci.org/michaelnisi/showf) [![David DM](https://david-dm.org/michaelnisi/showf.png)](http://david-dm.org/michaelnisi/showf)
 
 ## Usage
-    
-### showf()
+   
+    var showf = require('showf')
+      , cop = require('cop')
+
+    showf(process.cwd())
+      .pipe(cop(line))
+      .pipe(process.stdout)
+
+    function line (str) {
+      return str + '\n'
+    }
+
+### showf(dir)
 
 The `showf` module exports a single function that returns a [Transform](http://nodejs.org/api/stream.html#stream_class_stream_transform) stream.
 
