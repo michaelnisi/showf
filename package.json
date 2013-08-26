@@ -1,6 +1,6 @@
 {
   "name": "showf",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "show filenames of changed files in latest commit",
   "main": "index.js",
   "scripts": {
