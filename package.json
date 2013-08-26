@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "tap": "0.4.x",
+    "rimraf": "2.0.x",
     "event-stream": "3.0.x"
   },
   "engines": {

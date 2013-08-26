@@ -3,6 +3,7 @@ var test = require('tap').test
   , join = require('path').join
   , gitgo = require('gitgo')
   , es = require('event-stream')
+  , rimraf = require('rimraf')
   , showf = require('../')
   , dir = '/tmp/pushup-' + Math.floor(Math.random() * (1<<24))
   , spawn = require('child_process').spawn
@@ -59,5 +60,10 @@ test('lines', function (t) {
 })
 
 test('teardown', function (t) {
-  t.end()
+  rimraf(dir, function (err) {
+    fs.stat(dir, function (err) {
+      t.ok(!!err, 'should clean up after ourselves')
+      t.end()
+    })
+  })
 })
