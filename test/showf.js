@@ -5,7 +5,7 @@ var test = require('tap').test
   , es = require('event-stream')
   , rimraf = require('rimraf')
   , showf = require('../')
-  , dir = '/tmp/pushup-' + Math.floor(Math.random() * (1<<24))
+  , dir = '/tmp/showf-' + Math.floor(Math.random() * (1<<24))
   , spawn = require('child_process').spawn
   , cwd = process.cwd()
 

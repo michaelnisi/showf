@@ -4,6 +4,8 @@
 var gitgo = require('gitgo')
   , cop = require('cop')
   , lino = require('lino')
+  , StringDecoder = require('string_decoder').StringDecoder
+  , decoder = new StringDecoder('utf8')
 
 module.exports = function (dir) {
   var opts = []
@@ -17,7 +19,7 @@ module.exports = function (dir) {
 }
 
 function ignoreWhitespace (chunk) {
-  var str = trim(chunk.toString())
+  var str = trim(decoder.write(chunk))
   return !!str ? str : undefined
 }
 
