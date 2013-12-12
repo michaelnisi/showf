@@ -1,4 +1,4 @@
-# showf - show changed files in latest commit
+# showf - show files in commit
 
 The showf [Node.js](http://nodejs.org/) module shows filenames of changed files in the latest commit to a local git repository. 
 
