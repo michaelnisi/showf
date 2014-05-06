@@ -11,7 +11,6 @@ var test = require('tap').test
 
 test('setup', function (t) {
   fs.mkdirSync(dir, 0700)
-  process.chdir(dir)
   t.end()
 })
 
@@ -25,6 +24,7 @@ test('git init', function (t) {
 
 test('write', function (t) {
   var files = ['a.js', 'b.js', 'c.js'], filename = null
+  t.plan(1)
   while (file = files.shift()) {
     filename = join(dir, file)
     fs.writeFile(filename, 'console.log("Hello World!")', function (er) {
@@ -51,6 +51,7 @@ test('git commit', function (t) {
 })
 
 test('lines', function (t) {
+  t.plan(1)
   var expected = ['a.js', 'b.js', 'c.js']
   showf(dir)
     .pipe(es.writeArray(function (err, lines) {
@@ -61,6 +62,7 @@ test('lines', function (t) {
 })
 
 test('teardown', function (t) {
+  t.plan(1)
   rimraf(dir, function (err) {
     fs.stat(dir, function (err) {
       t.ok(!!err, 'should clean up after ourselves')
