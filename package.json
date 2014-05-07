@@ -1,6 +1,6 @@
 {
   "name": "showf",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "show filenames of changed files in latest commit",
   "main": "index.js",
   "scripts": {
@@ -25,7 +25,7 @@
   ],
   "dependencies": {
     "gitgo": "0.5.0",
-    "lino": "0.0.9",
+    "lino": "0.1.x",
     "cop": "0.3.x"
   },
   "devDependencies": {
